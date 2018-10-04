@@ -3,6 +3,9 @@ import { Http, Response, Headers, RequestOptions, RequestMethod } from '@angular
 // import { Response, Headers, RequestOptions, RequestMethod } from '@angular/http';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { RequestOptions } from '@angular/common/http';
+
+
 import { Observable } from 'rxjs/Observable';
 import { map } from  'rxjs/operators';
 import 'rxjs/add/operator/map';
@@ -20,6 +23,7 @@ export class EmployeeService {
   postEmployee(emp : Employee){
     var body = JSON.stringify(emp);
     var headerOptions = new HttpHeaders({'Content-Type':'application/json'});
+    //var headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})};
     var requestOptions = new RequestOptions({method : RequestMethod.Post,headers : headerOptions});
     return this.http.post('http://localhost:50658/api/Employees',body,requestOptions).map(x => x);
   }
